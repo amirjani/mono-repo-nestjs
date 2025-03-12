@@ -17,6 +17,8 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
+    "useDefineForClassFields": false,
+    "strictPropertyInitialization": false,
     "paths": {
       "@app/common": [
         "libs/common/src"

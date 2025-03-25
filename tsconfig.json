@@ -19,6 +19,7 @@
     "noFallthroughCasesInSwitch": false,
     "useDefineForClassFields": false,
     "strictPropertyInitialization": false,
+    "esModuleInterop": true,
     "paths": {
       "@app/common": [
         "libs/common/src"

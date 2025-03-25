@@ -1,10 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { SchemaTypes } from 'mongoose';
+import { SchemaTypes, Types } from 'mongoose';
 
 @Schema()
 export class AbstractDocument {
   @Prop({ type: SchemaTypes.ObjectId, required: true })
-  _id: string;
+  _id: Types.ObjectId;
 
   @Prop({ required: true, default: Date.now })
   createdAt: Date;

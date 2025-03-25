@@ -1,11 +1,11 @@
 import { NestFactory } from '@nestjs/core';
-import { ValidationPipe } from '@nestjs/common';
-import { ReservationsModule } from './reservations.module';
+import { AuthModule } from './auth.module';
 import { Logger } from 'nestjs-pino';
+import { ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {
-  const app = await NestFactory.create(ReservationsModule);
+  const app = await NestFactory.create(AuthModule);
 
   app.useGlobalPipes(
     new ValidationPipe({
@@ -22,10 +22,7 @@ async function bootstrap() {
 
   const configService = app.get(ConfigService);
 
-  await app.listen(configService.get('PORT') ?? 3000);
+  await app.listen(configService.get('PORT') ?? 3001);
 }
 
-bootstrap().catch((err) => {
-  console.error('Failed to start application:', err);
-  process.exit(1);
-});
+bootstrap();

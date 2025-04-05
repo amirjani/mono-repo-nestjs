@@ -4,4 +4,5 @@ export interface RequestWithCookies extends Request {
   cookies: {
     accessToken?: string;
   };
+  accessToken?: string;
 }

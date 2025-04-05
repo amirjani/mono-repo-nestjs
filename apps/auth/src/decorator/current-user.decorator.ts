@@ -7,7 +7,6 @@ interface RequestWithUser extends Request {
 
 const getCurrentUserByContext = (ctx: ExecutionContext): UserDocument => {
   const request = ctx.switchToHttp().getRequest<RequestWithUser>();
-
   return request.user;
 };
 

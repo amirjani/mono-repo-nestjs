@@ -1,0 +1,3 @@
+describe('PaymentsController', () => {
+  beforeEach(async () => {});
+});

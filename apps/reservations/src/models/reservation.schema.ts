@@ -16,9 +16,6 @@ export class ReservationDocument extends AbstractDocument {
   userId: string;
 
   @Prop({ required: true })
-  placeId: string;
-
-  @Prop({ required: true })
   invoiceId: string;
 }
 

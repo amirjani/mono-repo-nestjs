@@ -11,12 +11,14 @@ services:
       - 3000:3000
     volumes:
       - .:/usr/src/app
+    restart: always
   auth:
     build:
       context: .
       dockerfile: apps/auth/Dockerfile
       target: development
     command: pnpm run start:dev auth
+    restart: always
     env_file:
       - apps/auth/.env
     ports:
@@ -33,6 +35,7 @@ services:
       - apps/payments/.env
     ports:
       - 3002:3002
+    restart: always
     volumes:
       - .:/usr/src/app
   mongo:

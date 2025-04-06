@@ -5,7 +5,7 @@ import {
 } from '@nestjs/common';
 import { CanActivate } from '@nestjs/common';
 import { RequestWithCookies } from 'apps/auth/src/interfaces';
-import { map, Observable, tap } from 'rxjs';
+import { catchError, map, Observable, of, tap } from 'rxjs';
 import { AUTH_SERVICE } from '../constants/services';
 import { ClientProxy } from '@nestjs/microservices';
 import { UserDocument } from 'apps/auth/src/users/models/user.schema';
@@ -37,6 +37,7 @@ export class JwtAuthGuard implements CanActivate {
           request.user = res;
         }),
         map(() => true),
+        catchError(() => of(false)),
       );
   }
 }

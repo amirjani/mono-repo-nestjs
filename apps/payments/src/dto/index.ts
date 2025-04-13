@@ -1,1 +1,1 @@
-export * from '../../../../libs/common/src/dto/create-charge.dto';
+export * from './payments-create-charge.dto';

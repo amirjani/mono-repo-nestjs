@@ -19,10 +19,10 @@ export class ReservationsService {
   async create(user: UserDto, createReservationDto: CreateReservationDto) {
     return await firstValueFrom(
       this.paymentsService
-        .send<Stripe.PaymentIntent>(
-          'create_charge',
-          createReservationDto.charge,
-        )
+        .send<Stripe.PaymentIntent>('create_charge', {
+          ...createReservationDto.charge,
+          email: user.email,
+        })
         .pipe(
           map(async (response) => {
             return await this.reservationsRepository.create({

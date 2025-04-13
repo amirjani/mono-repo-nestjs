@@ -47,6 +47,8 @@ export class PaymentsService {
 
     this.notificationsService.emit('notify_email', {
       email: createChargeDto.email,
+      text: `Your payment of $${createChargeDto.amount} has been confirmed`,
+      subject: 'Payment confirmed',
     });
 
     return paymentIntent;

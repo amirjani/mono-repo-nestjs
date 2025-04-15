@@ -4,3 +4,5 @@ export * from './auth';
 export * from './constants';
 export * from './decorator';
 export * from './dto';
+export * from './interfaces';
+export * from './models';

@@ -5,7 +5,7 @@ import {
 } from '@nestjs/common';
 import { UserRepository } from './user.repository';
 import { CreateUserDto } from './dto/create-user.dto';
-import { UserDocument } from './models/user.schema';
+import { UserDocument } from '@app/common';
 import { hash as bcryptHash, compare as bcryptCompare } from 'bcryptjs';
 import { GetUserDto } from './dto/get-user.dto';
 

@@ -4,11 +4,11 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { CanActivate } from '@nestjs/common';
-import { RequestWithCookies } from 'apps/auth/src/interfaces';
+import { RequestWithCookies } from '@app/common';
 import { catchError, map, Observable, of, tap } from 'rxjs';
 import { AUTH_SERVICE } from '../constants/services';
 import { ClientProxy } from '@nestjs/microservices';
-import { UserDocument } from 'apps/auth/src/users/models/user.schema';
+import { UserDocument } from '@app/common';
 
 interface RequestWithUser extends RequestWithCookies {
   user: UserDocument;

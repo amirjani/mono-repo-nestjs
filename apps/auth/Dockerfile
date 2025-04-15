@@ -5,12 +5,13 @@ WORKDIR /usr/src/app
 
 COPY package.json ./
 COPY pnpm-lock.yaml ./
-
+COPY tsconfig.json tsconfig.json
 RUN npm install -g pnpm
 
 RUN pnpm install --frozen-lockfile
 
-COPY . .
+COPY apps/auth/ apps/auth
+COPY libs libs
 
 RUN pnpm run build
 

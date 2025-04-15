@@ -9,10 +9,12 @@ COPY tsconfig.json tsconfig.json
 
 RUN npm install -g pnpm
 
-RUN pnpm install --frozen-lockfile
+RUN pnpm install 
 
 COPY apps/payments/ apps/payments
 COPY libs libs
+
+RUN cd apps/payments && pnpm install
 
 RUN pnpm run build
 

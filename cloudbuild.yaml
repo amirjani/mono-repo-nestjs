@@ -1,0 +1,24 @@
+steps: 
+  # Reservations
+  - name: gcr.io/cloud-builders/docker
+    args: ["build", "-t", "europe-southwest1-docker.pkg.dev/mononestjsmicroservice/reservations/production", "-f", "apps/reservations/Dockerfile", "."]
+  - name: gcr.io/cloud-builders/docker
+    args: ["push", "europe-southwest1-docker.pkg.dev/mononestjsmicroservice/reservations/production"]
+  
+  # Notifications
+  - name: gcr.io/cloud-builders/docker
+    args: ["build", "-t", "europe-southwest1-docker.pkg.dev/mononestjsmicroservice/notifications/production", "-f", "apps/notifications/Dockerfile", "."]
+  - name: gcr.io/cloud-builders/docker
+    args: ["push", "europe-southwest1-docker.pkg.dev/mononestjsmicroservice/notifications/production"]
+  
+  # Payments
+  - name: gcr.io/cloud-builders/docker
+    args: ["build", "-t", "europe-southwest1-docker.pkg.dev/mononestjsmicroservice/payments/production", "-f", "apps/payments/Dockerfile", "."]
+  - name: gcr.io/cloud-builders/docker
+    args: ["push", "europe-southwest1-docker.pkg.dev/mononestjsmicroservice/payments/production"]
+  
+  # Auth
+  - name: gcr.io/cloud-builders/docker
+    args: ["build", "-t", "europe-southwest1-docker.pkg.dev/mononestjsmicroservice/auth/production", "-f", "apps/auth/Dockerfile", "."]
+  - name: gcr.io/cloud-builders/docker
+    args: ["push", "europe-southwest1-docker.pkg.dev/mononestjsmicroservice/auth/production"]

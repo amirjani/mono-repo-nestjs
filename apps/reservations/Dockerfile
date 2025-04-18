@@ -6,15 +6,15 @@ WORKDIR /usr/src/app
 COPY package.json ./
 COPY pnpm-lock.yaml ./
 COPY tsconfig.json tsconfig.json
-
-RUN npm install -g pnpm
-
-RUN pnpm install --frozen-lockfile
-
+COPY nest-cli.json nest-cli.json
 COPY apps/reservations/ apps/reservations/
 COPY libs libs
 
-RUN pnpm run build
+RUN npm install -g pnpm
+
+RUN pnpm install -r --config.confirmModulesPurge=false
+
+RUN pnpm run build reservations
 
 # Production stage
 FROM node:alpine AS production

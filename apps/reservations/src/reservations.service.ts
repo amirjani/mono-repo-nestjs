@@ -7,7 +7,10 @@ import { UserDto } from '@app/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { PAYMENTS_SERVICE } from '@app/common';
 import { map, firstValueFrom } from 'rxjs';
-import Stripe from 'stripe';
+
+interface PaymentResponse {
+  id: string;
+}
 
 @Injectable()
 export class ReservationsService {
@@ -19,7 +22,7 @@ export class ReservationsService {
   async create(user: UserDto, createReservationDto: CreateReservationDto) {
     return await firstValueFrom(
       this.paymentsService
-        .send<Stripe.PaymentIntent>('create_charge', {
+        .send<PaymentResponse>('create_charge', {
           ...createReservationDto.charge,
           email: user.email,
         })
